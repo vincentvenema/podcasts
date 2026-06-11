@@ -1,0 +1,369 @@
+{
+  "meta": {
+    "source": "Adformatie — Podcast voor de Week",
+    "author": "Marvin Jacobs",
+    "agency": "Airborne Network",
+    "spotify_playlist": "https://open.spotify.com/playlist/7hZ9P5KKFkx68tU6B6iwCT",
+    "last_checked": "2026-06-11",
+    "description": "Wekelijkse podcast-aanbevelingen van Marvin Jacobs, Creative Director bij Airborne Network en Professor Podcast bij LINDA."
+  },
+  "weeks": [
+    {
+      "week": "2026-W24",
+      "date": "2026-06-08",
+      "title": "Het klopt niet",
+      "makers": "Renée van Heteren & Cyril Rosman / AD",
+      "description": "Vijfdelige podcast van het AD waarin onderzoeksjournalist Cyril Rosman en podcastmaker Renée van Heteren een jaar lang Koen en Babette volgen, twee Nederlanders die zich verbonden voelen met Common Law Nederland Earth, volgens justitie een radicaal soevereine beweging die zich afkeert van de overheid. Zonder oordeel proberen de makers te doorgronden wat dit diepe wantrouwen voedt en of hun feitenwereld en de gevoelswereld van hun hoofdpersonen dichter bij elkaar kunnen komen.",
+      "spotify_id": null,
+      "spotify_url": null,
+      "note": "Exclusief te beluisteren via AD.nl/hetkloptniet of de AD-app.",
+      "category": "society",
+      "source_url": "https://www.adformatie.nl/media/media/podcast-voor-de-week-het-klopt-niet",
+      "source_slug": "podcast-voor-de-week-het-klopt-niet"
+    },
+    {
+      "week": "2026-W20",
+      "date": "2026-05-11",
+      "title": "Cocaïnekoorts III",
+      "makers": "Jan Meeus & Mark Eeckhaut / NRC — De Standaard",
+      "description": "Derde seizoen van de NRC-podcast over de internationale cocaïnemaffia. Misdaadjournalisten Jan Meeus (NRC) en Mark Eeckhaut (De Standaard) reconstrueren de carrière van de Vlaamse Flor Bressers — bekend als 'De Lange uit Lommel' of 'De Vingerknipper' — die uitgroeide tot een van Europa's grootste drugssmokkelaars.",
+      "spotify_id": "1fI3xqzFr8NLS8C9kRJ26a",
+      "spotify_url": "https://open.spotify.com/show/1fI3xqzFr8NLS8C9kRJ26a",
+      "category": "true-crime"
+    },
+    {
+      "week": "2026-W19",
+      "date": "2026-05-06",
+      "title": "De Vondeling",
+      "makers": "Roos Gerritsen / AT5",
+      "description": "Zesdelige zoektocht naar de ouders van Lieve, die in 2003 als pasgeboren baby in een plastic tasje werd gevonden in een portiek in de Amsterdamse Pijp. Tweeëntwintig jaar later gaat Lieve met podcastmaker Roos Gerritsen op onderzoek. Naast haar persoonlijke verhaal komen bredere thema's aan bod: vondelingenkamers, de verjaringstermijn en het onbekende verhaal van Youri, negen dagen later op vergelijkbare wijze achtergelaten.",
+      "spotify_id": "02HbmZiEGXMRduAFcZMHlx",
+      "spotify_url": "https://open.spotify.com/show/02HbmZiEGXMRduAFcZMHlx",
+      "category": "true-crime"
+    },
+    {
+      "week": "2026-W17",
+      "date": "2026-04-20",
+      "title": "Kwammie Rocket's Quarantaine Radioshow",
+      "makers": "Simone Eleveld & Jop de Vrieze / NTR — NPO Luister",
+      "description": "Zesdelige documentaire-mozaïek, zes jaar na de start van de coronapandemie. Makers Eleveld en De Vrieze kozen voor een onorthodoxe vorm: een warme, jazzy radioshow waarin huiskamer-dj Kwammie Rocket (Mikko Kuiper) tien Nederlanders aan het woord laat over hun dilemma's uit de lockdownperiode — van een China-correspondent tot een gedetineerde die 23 uur per dag in zijn cel zit.",
+      "spotify_id": null,
+      "spotify_url": null,
+      "note": "Beschikbaar via NPO Luister-app en andere podcastapps — Spotify show-ID nog niet eenduidig gevonden",
+      "category": "society"
+    },
+    {
+      "week": "2026-W14",
+      "date": "2026-04-06",
+      "title": "The Idiot",
+      "makers": "M. Gessen / Serial Productions — The New York Times",
+      "description": "Vijfdelige true crime waarin Masha Gessen haar neef Allen onderzoekt, gearresteerd op verdenking van het beramen van een huurmoord op zijn ex-vrouw.",
+      "spotify_id": "3R1dk41k7gx8PPmaUwomAG",
+      "spotify_url": "https://open.spotify.com/show/3R1dk41k7gx8PPmaUwomAG",
+      "category": "true-crime"
+    },
+    {
+      "week": "2026-W13",
+      "date": "2026-03-23",
+      "title": "Het Rode Noorden",
+      "makers": "Kim van den Bergh / NPO Luister — Omroep MAX",
+      "description": "Vijfdelige zoektocht naar de wortels van het communisme in Oost-Groningen, startend vanuit een negen meter hoog Lenin-beeld op een boerenerf. Winnaar NPO Luister Podcast Pitch 2025.",
+      "spotify_id": "5o7bHj0hehXy5XQjH9ybYF",
+      "spotify_url": "https://open.spotify.com/show/5o7bHj0hehXy5XQjH9ybYF",
+      "category": "history"
+    },
+    {
+      "week": "2026-W11",
+      "date": "2026-03-09",
+      "title": "Sextortion",
+      "makers": "Lars van Eijden & Rick Uilenbroek / Audiohuis",
+      "description": "Vierdelige true crime over Mark S., veroordeeld in een van de grootste sextortionzaken in Nederland. Podcastmaker Lars van Eijden blijkt een jeugdvriend van de dader.",
+      "spotify_id": "6SMCITqavvOQPSPyCmODax",
+      "spotify_url": "https://open.spotify.com/show/6SMCITqavvOQPSPyCmODax",
+      "category": "true-crime"
+    },
+    {
+      "week": "2026-W09",
+      "date": "2026-02-23",
+      "title": "The Walkers: The Real Salt Path",
+      "makers": "Chloe Hadjimatheou / Tortoise Investigates — The Observer",
+      "description": "Onderzoek naar Raynor Winn's bestseller-memoir 'The Salt Path'. Journaliste Chloe Hadjimatheou krijgt een tip dat het verhaal mogelijk niet de 'onvervalst eerlijke' reconstructie is die werd beloofd — en alles begint te ontrafelen.",
+      "spotify_id": "6edrtr63RobTNRuLvU2sfj",
+      "spotify_url": "https://open.spotify.com/show/6edrtr63RobTNRuLvU2sfj",
+      "category": "journalism",
+      "note": "Deze seizoensreeks verschijnt in de Foundling | Tortoise Investigates feed."
+    },
+    {
+      "week": "2026-W08",
+      "date": "2026-02-16",
+      "title": "De Rolverdeling",
+      "makers": "Sara de Monchy / NPO Luister — NTR",
+      "description": "Sara de Monchy volgt een jaar lang vijf kinderen uit een groep 8 vlakbij de havens van Rotterdam. Te midden van de musical-voorbereiding wordt duidelijk hoe verwachtingen van ouders, leerkrachten en het systeem de toekomstkansen van kinderen vormgeven.",
+      "spotify_id": "6gs75aXIGlNrJtu9dbsdVv",
+      "spotify_url": "https://open.spotify.com/show/6gs75aXIGlNrJtu9dbsdVv",
+      "category": "society"
+    },
+    {
+      "week": "2026-W06",
+      "date": "2026-02-09",
+      "title": "De Kunst van het Verdwijnen — S02",
+      "makers": "Bart van Nuffelen & Lucas Derycke / VRT MAX",
+      "description": "Vervolg op het bekroonde eerste seizoen. Bart bezoekt Fred Kader in een Amerikaans bejaardentehuis en krijgt een opdracht die leidt naar 'Miel de Jodenpakker' in Antwerpen.",
+      "spotify_id": "3SwkB1G1KrQdUv4UUWaLuH",
+      "spotify_url": "https://open.spotify.com/show/3SwkB1G1KrQdUv4UUWaLuH",
+      "category": "history"
+    },
+    {
+      "week": "2026-W04",
+      "date": "2026-01-26",
+      "title": "Stoker",
+      "makers": "Lex Noteboom / NTR — NPO Luister",
+      "description": "Vijfdelige fictie-podcast over Ares Consultancy, een bedrijf dat op bestelling ruzie tussen mensen veroorzaakt. Van de maker van De vrouw met duizend gezichten en The Deca Tapes.",
+      "spotify_id": null,
+      "spotify_url": null,
+      "note": "Spotify show-ID nog niet gevonden — beschikbaar via NPO Luister-app en podcastapps",
+      "category": "fiction"
+    },
+    {
+      "week": "2026-W04",
+      "date": "2026-01-22",
+      "title": "De Ware Jacob",
+      "makers": "Jan Westera & Colin Mooijman / Dagblad van het Noorden",
+      "description": "Achtdelige true crime over Rob Jacob, volgens de makers de grootste en meest onbekende oplichter van Nederland. Hij doet zich voor als baron, criminoloog of hoge militair en oplicht banken en Quote 500-leden. Van Blaricum tot Bali.",
+      "spotify_id": "1otpxELP6XaCFw6DespksE",
+      "spotify_url": "https://open.spotify.com/show/1otpxELP6XaCFw6DespksE",
+      "category": "true-crime"
+    },
+    {
+      "week": "2026-W02",
+      "date": "2026-01-12",
+      "title": "Dichter aan het front",
+      "makers": "Michiel Driebergen, Edwin Koopman & Kateryna Shutalova / VPRO Bureau Buitenland",
+      "description": "Vierdelige serie met Oekraïense soldaat-dichters: dronepiloot Yaryna, lijkenruimer Oleksiy, militair psycholoog Roman. Poëzie als brug tussen front en thuisfront.",
+      "spotify_id": "6wwbcFHqwOmjS1mM3InDaT",
+      "spotify_url": "https://open.spotify.com/show/6wwbcFHqwOmjS1mM3InDaT",
+      "category": "journalism"
+    },
+    {
+      "week": "2025-W51",
+      "date": "2025-12-15",
+      "title": "Murder in Trial: Girl in the River",
+      "makers": "BBC",
+      "description": "Over een meisje dat dood wordt aangetroffen in een rivier en de rechtszaak die volgt. Onderdeel van de BBC-reeks over moordprocessen.",
+      "spotify_id": null,
+      "spotify_url": null,
+      "note": "Show-ID nog niet eenduidig te vinden op Spotify — mogelijk alleen via BBC Sounds beschikbaar.",
+      "category": "true-crime"
+    },
+    {
+      "week": "2025-W50",
+      "date": "2025-12-08",
+      "title": "Niet Mijn Schuld",
+      "makers": "Sander 't Sas / NPO Luister — AVROTROS",
+      "description": "Journalist Sander 't Sas (De Taxioorlog) onderzoekt hoe kinderen die ten onrechte uit huis werden geplaatst door de toeslagenaffaire, vijf jaar na de val van kabinet Rutte nog altijd niet terug zijn. De overheid erkent hen niet als volwaardig gedupeerd.",
+      "spotify_id": "5Jv5DxATm4ixndzkTbE5ba",
+      "spotify_url": "https://open.spotify.com/show/5Jv5DxATm4ixndzkTbE5ba",
+      "category": "journalism"
+    },
+    {
+      "week": "2025-W48",
+      "date": "2025-11-24",
+      "title": "Curse of: America's Next Top Model",
+      "makers": "Bridget Armstrong / iHeartPodcasts — Glass Podcasts",
+      "description": "Diepte-onderzoek naar wat er achter de schermen gebeurde bij een van de meest iconische reality-shows van de vroege jaren '00. Twintig jaar later noemen veel kandidaten de nasleep een vloek.",
+      "spotify_id": "3I82wTwrhbwGSidVQUiBhD",
+      "spotify_url": "https://open.spotify.com/show/3I82wTwrhbwGSidVQUiBhD",
+      "category": "culture"
+    },
+    {
+      "week": "2025-W47",
+      "date": "2025-11-17",
+      "title": "Zeg Paus, waar is m'n kunst?",
+      "makers": "Olga Majeau & Stef Visjager / AVROTROS — NPO Luister",
+      "description": "Olga Majeau hoort over een sprookjesachtig kasteel dat ooit van haar Hongaarse voorouders was, met een immense Renaissance-collectie (Correggio, Bernini, Tiepolo, Rafael). Het kasteel is nu een hotel, de kunst is verdwenen. Een zoektocht die een true crime over internationaal kunstrecht wordt.",
+      "spotify_id": "1oiwMPzgq9dYwE4h4OCDvC",
+      "spotify_url": "https://open.spotify.com/show/1oiwMPzgq9dYwE4h4OCDvC",
+      "category": "history"
+    },
+    {
+      "week": "2025-W46",
+      "date": "2025-11-10",
+      "title": "Het verraad van de familie Zilversmit",
+      "makers": "Judith Zilversmit & Annet Röst / Het Parool",
+      "description": "Journalist Judith Zilversmit krijgt een onverwacht Instagram-bericht: 'Het was mijn oma Betsy die jouw vader heeft verraden tijdens de oorlog.' Een zesdelige zoektocht naar verraad, familiegeschiedenis en de vraag wie er zeggenschap heeft over het verleden.",
+      "spotify_id": "2MTWaHFB12OKtcv0VF2jVc",
+      "spotify_url": "https://open.spotify.com/show/2MTWaHFB12OKtcv0VF2jVc",
+      "category": "history"
+    },
+    {
+      "week": "2025-W44",
+      "date": "2025-11-03",
+      "title": "Het Mysterie van de Boze Mensen",
+      "makers": "Robin de Wever / Omroep MAX — NPO Luister",
+      "description": "Zevendelige serie over de onderstroom van woede in Nederland: van boswachters tot huisartsen, van schooldirecteuren tot campinggasten. Waar komt het onbehagen vandaan?",
+      "spotify_id": null,
+      "spotify_url": null,
+      "note": "Spotify show-ID nog niet gevonden — beschikbaar via NPO Luister, Apple Podcasts en Spotify via zoeken",
+      "category": "society"
+    },
+    {
+      "week": "2025-W40",
+      "date": "2025-09-29",
+      "title": "Het is niet van mij",
+      "makers": "Robin Peters & Merel van Waalwijk van Doorn / KRO-NCRV",
+      "description": "Reconstructie van de geschiedenis van circa 15.000 Nederlandse afstandsmoeders tussen 1956 en 1984, via het verhaal van Renée die op haar 18e onbedoeld zwanger raakte.",
+      "spotify_id": null,
+      "spotify_url": "https://open.spotify.com/episode/3S75IMdujDtabiZvLzRAOZ",
+      "note": "Show-ID nog niet gevonden — bovenstaande link is aflevering 1",
+      "category": "history"
+    },
+    {
+      "week": "2025-W23",
+      "date": "2025-06-09",
+      "title": "Onaantastbaar",
+      "makers": "Jair Stein, Jan Maarten Deurvorst & Huda Rais / NPO Luister — NTR",
+      "description": "Negendelige journalistieke reeks over de opkomst en ondergang van de Nederlandse Moslim Omroep onder directeur Frank William (1997–2007). Meer dan 150 bronnen, duizenden pagina's aan documenten.",
+      "spotify_id": "7bPRUiJz0yrG94kRDTp0uo",
+      "spotify_url": "https://open.spotify.com/show/7bPRUiJz0yrG94kRDTp0uo",
+      "category": "journalism"
+    },
+    {
+      "week": "2025-W21",
+      "date": "2025-05-19",
+      "title": "Kill List",
+      "makers": "Carl Miller / Wondery — Novel",
+      "description": "Britse techjournalist ontdekt op het dark web een lijst met honderden onschuldige mensen die tegen betaling vermoord zouden moeten worden, en probeert de slachtoffers zelf te waarschuwen.",
+      "spotify_id": "0MKZSB39sSnSYHzey11SPF",
+      "spotify_url": "https://open.spotify.com/show/0MKZSB39sSnSYHzey11SPF",
+      "category": "true-crime"
+    },
+    {
+      "week": "2025-W19",
+      "date": "2025-05-12",
+      "title": "Onkruid in het Paradijs",
+      "makers": "Silvia Bromet / NPO Luister — Omroep MAX",
+      "description": "Documentairemaker Silvia Bromet volgt een jaar lang Tuinpark Buitenzorg, een van de oudste volkstuincomplexen van Amsterdam, en legt de onderhuidse spanningen bloot.",
+      "spotify_id": "6Fv980lZiluTCV4FxGyssq",
+      "spotify_url": "https://open.spotify.com/show/6Fv980lZiluTCV4FxGyssq",
+      "category": "society"
+    },
+    {
+      "week": "2025-W11",
+      "date": "2025-03-17",
+      "title": "Spionnen op de Noordzee",
+      "makers": "Peter Keizer & Sander Bartling / KRO-NCRV Pointer",
+      "description": "Journalisten volgen een Russisch schip voor de Nederlandse kust en stuiten op een complete schaduwvloot. Over hybride oorlogvoering en de kwetsbaarheid van onderzeese infrastructuur.",
+      "spotify_id": null,
+      "spotify_url": null,
+      "note": "Onderdeel van Pointer Podcasts — Spotify show-ID voor volledige serie nog niet gevonden",
+      "category": "journalism"
+    },
+    {
+      "week": "2025-W08",
+      "date": "2025-02-17",
+      "title": "The Good Whale",
+      "makers": "Daniel Alarcón / Serial Productions — The New York Times",
+      "description": "Het verhaal van Keiko, de orka uit Free Willy, die in 1979 jong werd gevangen en via Mexico, Oregon, IJsland en Noorwegen weer vrij probeerde te komen. Over onze complexe relatie met wilde dieren.",
+      "spotify_id": "67Gy3bvnJ2uARd5BGYfuMn",
+      "spotify_url": "https://open.spotify.com/show/67Gy3bvnJ2uARd5BGYfuMn",
+      "category": "nature"
+    }
+  ],
+  "best_of_2025": [
+    {
+      "title": "Het Verhaal van de Schaal",
+      "makers": "Simon Heijmans / NPO Luister — NTR",
+      "description": "Onderzoek naar een raadselachtige Chinese porseleinen schaal: Ming-dynastie of toch niet? Zeven afleveringen vol expertdiscussies en wetenschappelijk onderzoek.",
+      "spotify_id": "30bgaBT5eYiE53oEJc3aaU",
+      "spotify_url": "https://open.spotify.com/show/30bgaBT5eYiE53oEJc3aaU"
+    },
+    {
+      "title": "Het Fortuin Carlier",
+      "makers": "Achille Van Ingelgem & Erik Raspoet / VRT Radio 1",
+      "description": "De grootste erfenisstrijd uit de Belgische geschiedenis rond de 200 miljoen euro van oliebaron-dochter Marie-Antoinette Carlier. Brazilianen, kasteel, boeren.",
+      "spotify_id": "3pFqVetWTT1NbjY0gIpxVH",
+      "spotify_url": "https://open.spotify.com/show/3pFqVetWTT1NbjY0gIpxVH",
+      "listened": true
+    },
+    {
+      "title": "Bingomaffia",
+      "makers": "Janneke Verbaarschot / BNNVARA — NPO Luister",
+      "description": "Vijftig jaar bingo in Nederland: van de bingomoorden in de jaren '80 tot de georganiseerde misdaad van nu. Winnaar eerste NPO Podcast Pitch.",
+      "spotify_id": "1d726sDusBblhRtbZh7F1X",
+      "spotify_url": "https://open.spotify.com/show/1d726sDusBblhRtbZh7F1X"
+    },
+    {
+      "title": "Jacob, dood in Qatar",
+      "makers": "Lex Boon & Arthur Brand / NPO Luister — NTR",
+      "description": "De raadselachtige dood van een Nederlandse assistent-conservator in het privémuseum van een Qatarese sjeik. Zeven afleveringen kunsthandel, vergiftiging, machtsspel.",
+      "spotify_id": "53E6UBBteggQN596427C6w",
+      "spotify_url": "https://open.spotify.com/show/53E6UBBteggQN596427C6w",
+      "listened": true
+    },
+    {
+      "title": "Niemandsland",
+      "makers": "Elsbeth Stoker & Dija Kabba / de Volkskrant",
+      "description": "Zes afleveringen over de gaten in het Nederlandse zorgstelsel voor mensen met complexe psychiatrische problemen. Ingestoken via de moord op de 25-jarige Rens.",
+      "spotify_id": "5XcnoBiJ65p8EHritXMxbM",
+      "spotify_url": "https://open.spotify.com/show/5XcnoBiJ65p8EHritXMxbM",
+      "listened": true
+    },
+    {
+      "title": "De zeven levens van Betty",
+      "makers": "Naomi Steijger / Dag en Nacht Media — Podimo",
+      "description": "Zeven afleveringen over de moord op de 19-jarige Hongaarse sekswerker Betty Szabó op de Wallen in 2009. Een true crime die het genre zelf tegen het licht houdt.",
+      "spotify_id": "2uPkvKG7xpB2JHmPgWlULo",
+      "spotify_url": "https://open.spotify.com/show/2uPkvKG7xpB2JHmPgWlULo"
+    },
+    {
+      "title": "Sea of Lies",
+      "makers": "Sam Mullins / CBC Uncover",
+      "description": "Lichaam in de Noordzee, een Rolex met inscriptie, gestolen identiteiten: Sam Mullins ontrafelt het verhaal van een oplichter en moordenaar van rural Canada tot Devon.",
+      "spotify_id": "1bvPdDh3whXQTkycoFQoMD",
+      "spotify_url": "https://open.spotify.com/show/1bvPdDh3whXQTkycoFQoMD"
+    },
+    {
+      "title": "Olaf zit vast",
+      "makers": "Sanne Boer & Eric Arends / Argos — HUMAN/VPRO",
+      "description": "Zevendelige serie over Olaf H., veroordeeld tot levenslang voor een dubbele moord, terwijl onomstotelijk technisch bewijs ontbreekt. Onderdeel van Argos Series.",
+      "spotify_id": "3gSMsqOPotGBDePo3cySo5",
+      "spotify_url": "https://open.spotify.com/show/3gSMsqOPotGBDePo3cySo5"
+    },
+    {
+      "title": "Op zoek naar Marlotte",
+      "makers": "Lizzy Diercks / Zembla — BNNVARA",
+      "description": "Een vrijwilliger van de Kindertelefoon heeft drie jaar lang contact met de 13-jarige Marlotte. Tot blijkt dat Marlotte nooit heeft bestaan. Vijf afleveringen bedrog en digitale empathie.",
+      "spotify_id": "19po9BEGXkaA4uvyviCtSS",
+      "spotify_url": "https://open.spotify.com/show/19po9BEGXkaA4uvyviCtSS"
+    },
+    {
+      "title": "Mino's Imperium",
+      "makers": "Guido van Gorp / NPO Luister — NOS",
+      "description": "Reconstructie van hoe Mino Raiola vanuit het Italiaanse restaurant van zijn vader uitgroeide tot een van de invloedrijkste zaakwaarnemers in de voetbalelite. Beste Podcast van het Jaar — Dutch Podcast Awards.",
+      "spotify_id": "5qWfxu3kOBgpm7iXJqy8Eq",
+      "spotify_url": "https://open.spotify.com/show/5qWfxu3kOBgpm7iXJqy8Eq",
+      "listened": true
+    },
+    {
+      "title": "Het is niet van mij",
+      "makers": "Robin Peters & Merel van Waalwijk van Doorn / KRO-NCRV",
+      "description": "Reconstructie van de geschiedenis van circa 15.000 Nederlandse afstandsmoeders tussen 1956 en 1984, via het verhaal van Renée die op haar 18e onbedoeld zwanger raakte.",
+      "spotify_id": null,
+      "spotify_url": "https://open.spotify.com/episode/3S75IMdujDtabiZvLzRAOZ"
+    },
+    {
+      "title": "Onaantastbaar",
+      "makers": "Jair Stein, Jan Maarten Deurvorst & Huda Rais / NPO Luister — NTR",
+      "description": "Negendelige journalistieke reeks over de opkomst en ondergang van de Nederlandse Moslim Omroep onder directeur Frank William (1997–2007).",
+      "spotify_id": "7bPRUiJz0yrG94kRDTp0uo",
+      "spotify_url": "https://open.spotify.com/show/7bPRUiJz0yrG94kRDTp0uo"
+    },
+    {
+      "title": "The Good Whale",
+      "makers": "Daniel Alarcón / Serial Productions — The New York Times",
+      "description": "Het verhaal van Keiko, de orka uit Free Willy, die via Mexico, Oregon, IJsland en Noorwegen weer vrij probeerde te komen. Over onze complexe relatie met wilde dieren.",
+      "spotify_id": "67Gy3bvnJ2uARd5BGYfuMn",
+      "spotify_url": "https://open.spotify.com/show/67Gy3bvnJ2uARd5BGYfuMn"
+    }
+  ]
+}
