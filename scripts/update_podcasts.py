@@ -156,8 +156,50 @@ def spotify_match(title: str, token):
                 "spotify_id": s.get("id"),
                 "spotify_url": (s.get("external_urls") or {}).get("spotify"),
                 "category": "",
+                "cover": (s.get("images") or [{}])[0].get("url") or "",
             }
     return None
+
+
+def spotify_shows(ids: list, token):
+    """Return {show_id: cover_url} for a batch of Spotify show ids."""
+    out = {}
+    if not token or not ids:
+        return out
+    for i in range(0, len(ids), 50):
+        batch = ids[i:i + 50]
+        try:
+            r = requests.get(
+                "https://api.spotify.com/v1/shows",
+                headers={"Authorization": f"Bearer {token}"},
+                params={"ids": ",".join(batch), "market": "NL"},
+                timeout=30,
+            )
+            r.raise_for_status()
+            for s in (r.json().get("shows") or []):
+                if s and s.get("images"):
+                    out[s["id"]] = s["images"][0]["url"]
+        except Exception as err:
+            print(f"  ! cover lookup failed for a batch: {err}")
+    return out
+
+
+def backfill_covers(data, token) -> bool:
+    """Fill `cover` on existing entries that have a Spotify id but no cover yet."""
+    entries = list(data.get("weeks", [])) + list(data.get("best_of_2025", []))
+    missing = [e for e in entries if e.get("spotify_id") and not e.get("cover")]
+    if not missing or not token:
+        return False
+    covers = spotify_shows([e["spotify_id"] for e in missing], token)
+    filled = 0
+    for e in missing:
+        url = covers.get(e["spotify_id"])
+        if url:
+            e["cover"] = url
+            filled += 1
+    if filled:
+        print(f"  + backfilled {filled} cover(s)")
+    return filled > 0
 
 
 def main() -> int:
@@ -177,15 +219,21 @@ def main() -> int:
         if p["slug"] not in known_slugs and normalise(p["title"]) not in known_titles
     ]
 
+    token = spotify_token()
+    changed = backfill_covers(data, token)
+
     if not new_picks:
         print(f"No new picks. Checked {len(picks)} cards, all already in podcasts.json.")
+        if changed:
+            JSON_PATH.write_text(
+                json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+            )
         write_output(0)
         return 0
 
     today = dt.date.today()
     iso_year, iso_week, _ = today.isocalendar()
     week_label = f"{iso_year}-W{iso_week:02d}"
-    token = spotify_token()
 
     added = 0
     for p in reversed(new_picks):
@@ -203,6 +251,7 @@ def main() -> int:
             "spotify_id": fields["spotify_id"],
             "spotify_url": fields["spotify_url"],
             "category": fields["category"],
+            "cover": fields.get("cover") or "",
             "source_url": p["url"],
             "source_slug": p["slug"],
         }
@@ -212,6 +261,7 @@ def main() -> int:
 
     if added:
         data["meta"]["last_checked"] = today.isoformat()
+    if added or changed:
         JSON_PATH.write_text(
             json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
