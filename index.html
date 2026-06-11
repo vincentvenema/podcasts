@@ -330,6 +330,8 @@ body.mode-compact .picks .pick-category {
 body.mode-compact .picks .pick-action {
   font-size: 11px;
   align-self: center;
+  grid-column: auto;
+  margin-top: 0;
 }
 
 body.mode-compact .picks .pick-action a {
@@ -404,8 +406,8 @@ body.mode-compact .picks .pick:hover {
 
 .pick {
   display: grid;
-  grid-template-columns: 120px 1fr auto;
-  gap: 24px;
+  grid-template-columns: 120px 1fr;
+  gap: 8px 24px;
   padding: 22px 0;
   border-top: 1px solid var(--line);
   align-items: start;
@@ -437,6 +439,21 @@ body.mode-compact .picks .pick:hover {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.pick-artwork.cover-unavailable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pick-artwork.cover-unavailable svg {
+  width: 40%;
+  height: 40%;
+  stroke: var(--muted);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  opacity: 0.4;
 }
 
 .pick-artwork.no-art {
@@ -518,9 +535,12 @@ body.mode-compact .picks .pick:hover {
 }
 
 .pick-action {
-  align-self: center;
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
   font-size: 12px;
-  white-space: nowrap;
 }
 
 .pick-action a {
@@ -531,6 +551,31 @@ body.mode-compact .picks .pick:hover {
   border-radius: 100px;
   transition: all 0.2s ease;
   display: inline-block;
+}
+.pick-action a.open-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.pick-action a.open-link svg {
+  flex-shrink: 0;
+}
+.pick-action .pick-unavailable {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-family: inherit;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.pick-action .pick-unavailable svg {
+  flex-shrink: 0;
 }
 
 .pick-action a:hover {
@@ -586,6 +631,9 @@ body.mode-compact .picks .pick:hover {
 
 .pick--compact .pick-action {
   font-size: 11px;
+  grid-column: auto;
+  align-self: center;
+  margin-top: 0;
 }
 
 .pick--compact .pick-action a {
@@ -987,21 +1035,28 @@ function buildPick(p, showWeek = true, compact = false) {
   // Artwork
   const artwork = document.createElement('div');
   artwork.className = 'pick-artwork';
-  if (p.spotify_id) {
+  if (p.cover) {
     const img = document.createElement('img');
     img.loading = 'lazy';
-    img.alt = `${p.title} artwork`;
+    img.alt = `${p.title} cover`;
+    img.src = p.cover;
+    img.onerror = () => unavailableCover(artwork);
+    artwork.appendChild(img);
+  } else if (p.spotify_id) {
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.alt = `${p.title} cover`;
     // Fetch cover from oEmbed
     fetch(`https://open.spotify.com/oembed?url=https://open.spotify.com/show/${p.spotify_id}`)
       .then(r => r.json())
       .then(data => {
         if (data.thumbnail_url) img.src = data.thumbnail_url;
-        else showInitial(artwork, p.title);
+        else unavailableCover(artwork);
       })
-      .catch(() => showInitial(artwork, p.title));
+      .catch(() => unavailableCover(artwork));
     artwork.appendChild(img);
   } else {
-    showInitial(artwork, p.title);
+    unavailableCover(artwork);
   }
 
   // Body
@@ -1075,36 +1130,29 @@ function buildPick(p, showWeek = true, compact = false) {
       a.href = p.spotify_url;
       a.target = '_blank';
       a.rel = 'noopener';
-      a.textContent = 'Open ↗';
+      a.className = 'open-link';
+      a.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10.5"/><path d="M6.8 9.2c3.4-1 7.2-.9 10.4.5"/><path d="M7.5 12.2c2.9-.8 6-.7 8.7.5"/><path d="M8.2 15.1c2.3-.6 4.8-.5 6.9.4"/></svg>Open Spotify ↗';
       action.appendChild(a);
+    } else {
+      const btn = document.createElement('button');
+      btn.className = 'pick-unavailable';
+      btn.type = 'button';
+      btn.disabled = true;
+      btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10.5"/><path d="M6.8 9.2c3.4-1 7.2-.9 10.4.5"/><path d="M7.5 12.2c2.9-.8 6-.7 8.7.5"/><path d="M8.2 15.1c2.3-.6 4.8-.5 6.9.4"/></svg>Niet op Spotify';
+      action.appendChild(btn);
     }
-    // "Markeer als beluisterd" button
-    const markBtn = document.createElement('button');
-    markBtn.className = 'pick-mark-btn';
-    markBtn.type = 'button';
-    markBtn.textContent = 'Markeer';
-    markBtn.title = getToken()
-      ? 'Markeer als beluisterd (publiek)'
-      : 'Markeer als beluisterd (alleen in deze browser — voeg token toe voor publieke sync)';
-    markBtn.addEventListener('click', async () => {
-      markBtn.disabled = true;
-      await toggleListened(p, true);
-      rerender();
-    });
-    action.appendChild(markBtn);
   }
 
   li.appendChild(artwork);
   li.appendChild(body);
-  li.appendChild(action);
+  if (action.children.length) li.appendChild(action);
 
   return li;
 }
 
-function showInitial(el, title) {
-  el.innerHTML = '';
-  el.classList.add('no-art');
-  el.textContent = title.charAt(0);
+function unavailableCover(el) {
+  el.innerHTML = '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="13"/><line x1="15" y1="15" x2="33" y2="33"/></svg>';
+  el.classList.add('cover-unavailable');
 }
 
 // Inline data (fallback when ./podcasts.json isn't served)
