@@ -340,12 +340,6 @@ body.mode-compact .picks .pick-action a {
   border-radius: 100px;
 }
 
-body.mode-compact .picks .pick-action .pick-listened,
-body.mode-compact .picks .pick-action .pick-mark-btn {
-  padding: 4px 9px;
-  font-size: 10px;
-}
-
 /* hover no background in compact (keeps density clean) */
 body.mode-compact .picks .pick:hover {
   background: transparent;
@@ -640,70 +634,6 @@ body.mode-compact .picks .pick:hover {
   padding: 6px 10px;
 }
 
-/* Listened marker */
-.pick-listened,
-.pick-mark-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 6px 10px;
-  border: 1px solid var(--line);
-  border-radius: 100px;
-  white-space: nowrap;
-  cursor: pointer;
-  background: transparent;
-  font-family: var(--mono);
-  transition: all 0.2s ease;
-}
-
-.pick-listened {
-  color: var(--muted);
-}
-
-.pick-listened::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--muted);
-  display: inline-block;
-}
-
-.pick-listened:hover {
-  color: var(--fg);
-  border-color: var(--fg);
-}
-
-.pick-listened:hover::before {
-  background: var(--fg);
-}
-
-.pick-mark-btn {
-  color: var(--muted);
-  opacity: 0;
-  transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-.pick:hover .pick-mark-btn {
-  opacity: 1;
-}
-
-.pick-mark-btn:hover {
-  color: var(--fg);
-  border-color: var(--fg);
-}
-
-.pick.is-listened .pick-artwork {
-  opacity: 0.55;
-}
-
-.pick.is-listened .pick-title {
-  color: var(--muted);
-}
-
 /* Tabs */
 .tabs {
   display: flex;
@@ -914,99 +844,6 @@ footer a:hover {
 </div>
 
 <script>
-// ============================================================================
-// Config
-// ============================================================================
-// API_BASE: leeg = relatief (zelfde origin als de site) — dit werkt als de
-// Worker je site serveert. Anders: zet de volledige worker-URL:
-//   const API_BASE = 'https://marvin-picks.your-subdomain.workers.dev';
-const API_BASE = '';
-
-const LS_TOKEN_KEY = 'marvin-picks-token';
-const LS_LISTENED_FALLBACK = 'marvin-picks-listened';
-
-// Token management — prompt once, store in localStorage
-function getToken() {
-  return localStorage.getItem(LS_TOKEN_KEY) || '';
-}
-function setToken(t) {
-  if (t) localStorage.setItem(LS_TOKEN_KEY, t);
-  else localStorage.removeItem(LS_TOKEN_KEY);
-}
-
-// Expose helpers to the console for convenience:
-//   marvin.setToken('your-refresh-token')
-//   marvin.clearToken()
-window.marvin = {
-  setToken: (t) => { setToken(t); rerender(); },
-  clearToken: () => { setToken(''); rerender(); },
-  hasToken: () => !!getToken(),
-};
-
-// ============================================================================
-// Local fallback (when worker isn't deployed yet)
-// ============================================================================
-function getListenedSet() {
-  try {
-    return new Set(JSON.parse(localStorage.getItem(LS_LISTENED_FALLBACK) || '[]'));
-  } catch {
-    return new Set();
-  }
-}
-
-function setListenedLocal(id, value) {
-  const set = getListenedSet();
-  if (value) set.add(id); else set.delete(id);
-  localStorage.setItem(LS_LISTENED_FALLBACK, JSON.stringify([...set]));
-}
-
-function pickId(p) {
-  return p.title.toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-}
-
-function isListened(p) {
-  return p.listened === true || getListenedSet().has(pickId(p));
-}
-
-// ============================================================================
-// Persist toggles — POST to worker if token available, else localStorage
-// ============================================================================
-async function toggleListened(p, value) {
-  const token = getToken();
-  const id = pickId(p);
-
-  if (token) {
-    // Try worker first
-    try {
-      const endpoint = value ? '/api/mark' : '/api/unmark';
-      const res = await fetch(API_BASE + endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + token,
-        },
-        body: JSON.stringify({ id }),
-      });
-      if (res.ok) {
-        // Update the in-memory data immediately
-        if (value) p.listened = true; else delete p.listened;
-        return { persisted: 'remote' };
-      }
-      if (res.status === 401) {
-        alert('Ongeldig token. Wis met marvin.clearToken() of stel opnieuw in.');
-      }
-    } catch (err) {
-      console.warn('Worker not reachable, falling back to localStorage', err);
-    }
-  }
-
-  // Fallback: localStorage only (visible only to you, only in this browser)
-  setListenedLocal(id, value);
-  if (value) p.listened = true; else delete p.listened;
-  return { persisted: 'local' };
-}
 
 // Format week label
 function formatWeek(weekStr, dateStr) {
@@ -1028,9 +865,7 @@ function formatDateLong(dateStr) {
 // Build pick HTML
 function buildPick(p, showWeek = true, compact = false) {
   const li = document.createElement('li');
-  const listened = isListened(p);
-  li.className = 'pick' + (compact ? ' pick--compact' : '') + (listened ? ' is-listened' : '');
-  li.dataset.pickId = pickId(p);
+  li.className = 'pick' + (compact ? ' pick--compact' : '');
 
   // Artwork
   const artwork = document.createElement('div');
@@ -1109,23 +944,8 @@ function buildPick(p, showWeek = true, compact = false) {
   const action = document.createElement('div');
   action.className = 'pick-action';
 
-  if (listened) {
-    const marker = document.createElement('button');
-    marker.className = 'pick-listened';
-    marker.type = 'button';
-    marker.textContent = 'Beluisterd';
-    marker.title = getToken()
-      ? 'Klik om te ontmarkeren'
-      : 'Lokaal gemarkeerd — alleen zichtbaar in deze browser';
-    marker.addEventListener('click', async () => {
-      marker.disabled = true;
-      await toggleListened(p, false);
-      rerender();
-    });
-    action.appendChild(marker);
-  } else {
-    // Open-link
-    if (p.spotify_url) {
+  // Open-link
+  if (p.spotify_url) {
       const a = document.createElement('a');
       a.href = p.spotify_url;
       a.target = '_blank';
@@ -1141,7 +961,6 @@ function buildPick(p, showWeek = true, compact = false) {
       btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10.5"/><path d="M6.8 9.2c3.4-1 7.2-.9 10.4.5"/><path d="M7.5 12.2c2.9-.8 6-.7 8.7.5"/><path d="M8.2 15.1c2.3-.6 4.8-.5 6.9.4"/></svg>Niet op Spotify';
       action.appendChild(btn);
     }
-  }
 
   li.appendChild(artwork);
   li.appendChild(body);
@@ -1440,8 +1259,7 @@ const INLINE_DATA = {
       "makers": "Achille Van Ingelgem & Erik Raspoet / VRT Radio 1",
       "description": "De grootste erfenisstrijd uit de Belgische geschiedenis rond de 200 miljoen euro van oliebaron-dochter Marie-Antoinette Carlier. Brazilianen, kasteel, boeren.",
       "spotify_id": "3pFqVetWTT1NbjY0gIpxVH",
-      "spotify_url": "https://open.spotify.com/show/3pFqVetWTT1NbjY0gIpxVH",
-      "listened": true
+      "spotify_url": "https://open.spotify.com/show/3pFqVetWTT1NbjY0gIpxVH"
     },
     {
       "title": "Bingomaffia",
@@ -1455,16 +1273,14 @@ const INLINE_DATA = {
       "makers": "Lex Boon & Arthur Brand / NPO Luister — NTR",
       "description": "De raadselachtige dood van een Nederlandse assistent-conservator in het privémuseum van een Qatarese sjeik. Zeven afleveringen kunsthandel, vergiftiging, machtsspel.",
       "spotify_id": "53E6UBBteggQN596427C6w",
-      "spotify_url": "https://open.spotify.com/show/53E6UBBteggQN596427C6w",
-      "listened": true
+      "spotify_url": "https://open.spotify.com/show/53E6UBBteggQN596427C6w"
     },
     {
       "title": "Niemandsland",
       "makers": "Elsbeth Stoker & Dija Kabba / de Volkskrant",
       "description": "Zes afleveringen over de gaten in het Nederlandse zorgstelsel voor mensen met complexe psychiatrische problemen. Ingestoken via de moord op de 25-jarige Rens.",
       "spotify_id": "5XcnoBiJ65p8EHritXMxbM",
-      "spotify_url": "https://open.spotify.com/show/5XcnoBiJ65p8EHritXMxbM",
-      "listened": true
+      "spotify_url": "https://open.spotify.com/show/5XcnoBiJ65p8EHritXMxbM"
     },
     {
       "title": "De zeven levens van Betty",
@@ -1499,8 +1315,7 @@ const INLINE_DATA = {
       "makers": "Guido van Gorp / NPO Luister — NOS",
       "description": "Reconstructie van hoe Mino Raiola vanuit het Italiaanse restaurant van zijn vader uitgroeide tot een van de invloedrijkste zaakwaarnemers in de voetbalelite. Beste Podcast van het Jaar — Dutch Podcast Awards.",
       "spotify_id": "5qWfxu3kOBgpm7iXJqy8Eq",
-      "spotify_url": "https://open.spotify.com/show/5qWfxu3kOBgpm7iXJqy8Eq",
-      "listened": true
+      "spotify_url": "https://open.spotify.com/show/5qWfxu3kOBgpm7iXJqy8Eq"
     },
     {
       "title": "Het is niet van mij",
@@ -1645,7 +1460,7 @@ function applyLayout(mode) {
 // ============================================================================
 // Data fetch
 // ============================================================================
-fetch((API_BASE || '.') + '/podcasts.json')
+fetch('./podcasts.json')
   .then(r => {
     if (!r.ok) throw new Error('not available');
     const ct = r.headers.get('content-type') || '';
