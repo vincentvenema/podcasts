@@ -1,0 +1,65 @@
+name: Update and publish podcast picks
+
+on:
+  schedule:
+    # Mondays 09:00 UTC (~10:00/11:00 Amsterdam). Marvin posts Monday morning.
+    - cron: "0 9 * * 1"
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - "podcasts.json"
+      - "index.html"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Find the new pick and fetch its Spotify details
+        env:
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+        run: python scripts/update_podcasts.py
+
+      - name: Commit podcasts.json if it changed
+        run: |
+          if git diff --quiet -- podcasts.json; then
+            echo "No change to podcasts.json."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add podcasts.json
+            git commit -m "Add new podcast pick"
+            git push
+          fi
+
+      - name: Re-bake the inline fallback so it matches podcasts.json
+        run: python scripts/sync_inline.py
+
+      - name: Deploy to Hostinger over FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Set FTP_TARGET_DIR to the folder that serves /podcasts (e.g. /public_html/podcasts/)
+          server-dir: ${{ secrets.FTP_TARGET_DIR }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/scripts/**
+            **/requirements.txt
+            **/README.md
