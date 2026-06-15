@@ -4,10 +4,23 @@
     "author": "Marvin Jacobs",
     "agency": "Airborne Network",
     "spotify_playlist": "https://open.spotify.com/playlist/7hZ9P5KKFkx68tU6B6iwCT",
-    "last_checked": "2026-06-11",
+    "last_checked": "2026-06-15",
     "description": "Wekelijkse podcast-aanbevelingen van Marvin Jacobs, Creative Director bij Airborne Network en Professor Podcast bij LINDA."
   },
   "weeks": [
+    {
+      "week": "2026-W25",
+      "date": "2026-06-15",
+      "title": "Koekoekskind",
+      "makers": "",
+      "description": "In deze feed vind je een selectie van journalistieke series en bijzondere verhalen van NRC.Een dna-test zet het leven van podcastmaker Cas Reijnders en zijn familie op z’n kop: zijn vader blijkt niet zijn genetische vader. In Koekoekskind duikt hij samen met redacteur Kim Bos in de wereld van sjoemelende fertiliteitsartsen in de jaren tachtig en negentig. Vijf speciale afleveringen van NRC Vandaag over de relatie tussen Europa en de Verenigde Staten, die compleet is veranderd. Het bewustzijn groeit: Europa moet autonomer worden. Maar hoe? En wat betekent dat precies?Op 65-jarige leeftijd krijgt Hans Goebertus, een vrolijke verwarmingsmonteur uit Amsterdam, de diagnose alzheimer. In de documentaireserie Hans volgt NRC hem vijf jaar lang, terwijl het leven hem langzaam ontglipt.In Ze noemen haar de Godmother vertelt NRC-redacteur Gabriella Adèr het verhaal van Aura C., een Colombiaans-Nederlandse vrouw die door justitie wordt gezien als kopstuk van een internationale drugsorganisatie. Maar klopt dat? En welke rol speelt beeldvorming als het gaat om vrouwen in de georganiseerde misdaad?Elf studenten analyseren een moordzaak uit 2012. De veroordeling rammelt. Een geheim dossier ontbreekt. Zit Antonio terecht een straf van 24 jaar uit? Of is er een grote fout gemaakt? Gerede Twijfel, de Maastrichtse martelmoord legt het onderzoek van de studenten vast.",
+      "spotify_id": "6PiUtr2vrOB1zwso2EkiMB",
+      "spotify_url": "https://open.spotify.com/show/6PiUtr2vrOB1zwso2EkiMB",
+      "category": "",
+      "cover": "https://i.scdn.co/image/ab6765630000ba8af51f7b2260b43c9666fe1bb2",
+      "source_url": "https://www.adformatie.nl/creatie/media/podcast-voor-de-week-koekoekskind",
+      "source_slug": "podcast-voor-de-week-koekoekskind"
+    },
     {
       "week": "2026-W24",
       "date": "2026-06-08",
