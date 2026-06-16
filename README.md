@@ -28,10 +28,9 @@ scripts/sync_inline.py       rewrites the inline fallback to match podcasts.json
 
 1. Repo secrets (Settings, Secrets and variables, Actions):
    - `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD` (Hostinger FTP details)
+   - `FTP_TARGET_DIR` (the folder that serves /podcasts, e.g. `/public_html/podcasts/`)
    - `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET` (free app at developer.spotify.com/dashboard)
-2. Confirm `server-dir` in the workflow matches where the site sits on Hostinger
-   (default `/public_html/podcasts/`).
-3. Actions tab, run "Update and publish podcast picks" once to verify.
+2. Actions tab, run "Update and publish podcast picks" once to verify.
 
 ## Notes
 
