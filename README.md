@@ -1,7 +1,7 @@
 # Marvin's Picks
 
 Static site tracking Marvin Jacobs' weekly "Podcast voor de Week" recommendations.
-Live at https://vincentvenema.com/podcasts/.
+Live at https://vincent.works/podcasts/.
 
 ## How it works
 

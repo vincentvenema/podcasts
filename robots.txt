@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://vincentvenema.com/podcasts/sitemap.xml
+Sitemap: https://vincent.works/podcasts/sitemap.xml
